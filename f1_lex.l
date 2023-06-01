@@ -18,4 +18,5 @@
 [a-zA-Z0-9]+[_]?[a-zA-Z0-9]+\.csv       { yylval.str = strdup(yytext); return FILENAME; }
 "resultId"|"points"|"driver"|"laps"		{ yylval.str = strdup(yytext); return COLUMN; }
 \n                                        return 0; 		    /* logical EOF */
+.
 %%
