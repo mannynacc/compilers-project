@@ -17,10 +17,12 @@ Run program as:
 
 To save Python code into a file.
 
-Input: 
+Input:\ 
 Search in results.csv with points more than 10 and laps less than 40
 
-Output: 
+Output:\
+```
 import pandas as pd
 df = pd.read_csv('results.csv')
 print(df[(df['points'] > 10) & (df['laps'] < 40)])
+```
