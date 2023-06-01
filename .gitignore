@@ -1,0 +1,6 @@
+*
+!.gitignore
+!f1_lex.l
+!f1_parser.y
+!query.txt
+!Makefile
