@@ -1,0 +1,2 @@
+Search in results.csv with more than 10 points
+Search in results.csv with more than 10 points and less than 40 laps
