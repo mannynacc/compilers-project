@@ -5,11 +5,11 @@
 %%
 "Search"|"Retrieve"|"Fetch"|"Find"      { return VERB; }
 [0-9]+				                    { yylval.num = atoi(yytext); return NUMBER; }
+"is"+|"are"+				            { return LINKING_VERB; } 
 "and"*                                  { yylval.str = "&"; return L; }
 "or"*                                   { yylval.str = strdup("|"); return L; }
-"not"*                                  { yylval.str = strdup("!"); return L; }
 "in"+|"at"+                             { yylval.str = strdup(yytext); return PREP; }
-"with"+|"where"+                        { yylval.str = strdup(yytext); return PREP2; }
+"where"+                                { yylval.str = strdup(yytext); return PREP2; }
 "equal to"+                             { yylval.str = strdup("=="); return COMP; }
 "less than"+                            { yylval.str = strdup("<"); return COMP; }
 "more than"+                            { yylval.str = strdup(">"); return COMP; }

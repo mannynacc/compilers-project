@@ -11,6 +11,8 @@ void yyerror(const char *s);
 
 %token <str> VERB
 
+%token <str> LINKING_VERB
+
 %token <str> PREP
 
 %token <str> FILENAME
@@ -34,12 +36,12 @@ statement: A                                 { printf("%s])", $1); }
  | B                                         { printf("%s])", $1); }        
 ;
 
-A: VERB PREP FILENAME PREP2 COLUMN COMP NUMBER        { 
+A: VERB PREP FILENAME PREP2 COLUMN LINKING_VERB COMP NUMBER        { 
     printf("import pandas as pd\n");
     printf("df = pd.read_csv('%s')\n", $3);
 
     $$ = (char*) malloc(sizeof(char) * 100);
-    sprintf($$, "print(df[(df['%s'] %s %d)", $5, $6, $7);
+    sprintf($$, "print(df[(df['%s'] %s %d)", $5, $7, $8);
 }
 ;
 
@@ -54,9 +56,9 @@ B: A C                                                {
 }
 ;
 
-C: L COLUMN COMP NUMBER                               { 
+C: L COLUMN LINKING_VERB COMP NUMBER                               { 
     $$ = (char*) malloc(sizeof(char) * 100);
-    sprintf($$, "%s (df['%s'] %s %d)", $1, $2, $3, $4);
+    sprintf($$, "%s (df['%s'] %s %d)", $1, $2, $4, $5);
 }
 ;
 %%

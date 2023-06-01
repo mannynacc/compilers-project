@@ -21,7 +21,7 @@ Run program as:
 To save Python code into a file.
 
 ### Input: 
-Search in results.csv with points more than 10 and laps less than 40
+Search in results.csv where points are more than 10 and laps are less than 40
 
 ### Output:
 ```
