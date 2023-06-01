@@ -1,2 +1,4 @@
-Search in results.csv with more than 10 points
-Search in results.csv with more than 10 points and less than 40 laps
+Search in results.csv with points more than 10
+Search in results.csv with points more than 10 and laps less than 40
+Search in results.csv with points more than 10 and laps less than 40 or driver equal to 1
+Search in results.csv with points more than 10 and laps less than 40 or driver equal to 1 and laps less than or equal to 40

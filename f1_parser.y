@@ -13,7 +13,7 @@ void yyerror(const char *s);
 
 %token <str> PREP
 
-%token <str> DEST
+%token <str> FILENAME
 
 %token <str> PREP2
 
@@ -25,21 +25,38 @@ void yyerror(const char *s);
 
 %token <num> NUMBER
 
-
-%token EQ LT MT LET MET 
+%type <str> A
+%type <str> B
+%type <str> C
 
 %%
-S: A                                            { printf("valid"); }    
- | B                                            { printf("valid"); }      
+statement: A                                 { printf("%s])", $1); }   
+ | B                                         { printf("%s])", $1); }        
 ;
 
-A: VERB PREP DEST PREP2 COMP NUMBER COLUMN       
+A: VERB PREP FILENAME PREP2 COLUMN COMP NUMBER        { 
+    printf("import pandas as pd\n");
+    printf("df = pd.read_csv('%s')\n", $3);
+
+    $$ = (char*) malloc(sizeof(char) * 100);
+    sprintf($$, "print(df[(df['%s'] %s %d)", $5, $6, $7);
+}
 ;
 
-B:                                                    
- | A C                                          
+B: A C                                                { 
+    $$ = (char*) malloc(sizeof(char) * 100);
+    sprintf($$, "%s %s", $1, $2);
+}
+
+ | B C                                                { 
+    $$ = (char*) malloc(sizeof(char) * 100);
+    sprintf($$, "%s %s", $1, $2);
+}
 ;
 
-C: L COMP NUMBER COLUMN                        
+C: L COLUMN COMP NUMBER                               { 
+    $$ = (char*) malloc(sizeof(char) * 100);
+    sprintf($$, "%s (df['%s'] %s %d)", $1, $2, $3, $4);
+}
 ;
 %%

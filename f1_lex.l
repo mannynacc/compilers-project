@@ -15,7 +15,7 @@
 "more than"+                            { yylval.str = strdup(">"); return COMP; }
 "less than or equal to"+                { yylval.str = strdup("<="); return COMP; }
 "more than or equal to"+                { yylval.str = strdup(">="); return COMP; }
-[a-zA-Z0-9]+[_]?[a-zA-Z0-9]+\.csv       { yylval.str = strdup(yytext); return DEST; }
+[a-zA-Z0-9]+[_]?[a-zA-Z0-9]+\.csv       { yylval.str = strdup(yytext); return FILENAME; }
 "resultId"|"points"|"driver"|"laps"		{ yylval.str = strdup(yytext); return COLUMN; }
 \n                                        return 0; 		    /* logical EOF */
 %%
