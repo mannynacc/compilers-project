@@ -1,12 +1,12 @@
 # Query compiler for Formula 1
 
 ## Created by:
-Manuel Ignacio Cota Casas A01637477
-Abraham Mendoza Pérez  A01274857
-Diego Mojarro Tapia A01638460
-Aldo Alejandro Degollado Padilla A01638391
-Luis Alonso Martínez García A01636255
-César Alexis Sahagún Navarro A01637885
+- Manuel Ignacio Cota Casas A01637477
+- Abraham Mendoza Pérez  A01274857
+- Diego Mojarro Tapia A01638460
+- Aldo Alejandro Degollado Padilla A01638391
+- Luis Alonso Martínez García A01636255
+- César Alexis Sahagún Navarro A01637885
 
 ## Description
 A compiler created with Lex and Yacc to read queries and translate them into Python code to look for data in a .csv file with Pandas.
